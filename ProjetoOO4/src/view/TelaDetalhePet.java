@@ -18,7 +18,7 @@ import controle.ControleDados;
 
 public class TelaDetalhePet implements ActionListener {
 	
-	//criação dos atributos da tela de detalhe
+	//criação dos atributos da tela de detalhe 
 	
 	private String sexoOpcoes[] = { "Macho", "Fêmea"}; 
 	private String porteOpcoes[] = { "Pequeno", "Medio", "Grande"}; 
