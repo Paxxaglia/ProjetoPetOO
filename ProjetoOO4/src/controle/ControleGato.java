@@ -3,7 +3,7 @@ package controle;
 import modelo.*;
 
 public class ControleGato {
-	
+	 
 	private Gato[] getGatos;
 	private int qtdGatos;
 

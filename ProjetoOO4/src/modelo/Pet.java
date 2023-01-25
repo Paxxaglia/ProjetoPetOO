@@ -10,7 +10,7 @@ public abstract class Pet {
 	public Pet() {
 
 	}
-
+  
 	// getters e setters
 
 	public String getNome() {

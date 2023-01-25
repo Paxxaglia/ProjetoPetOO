@@ -181,7 +181,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 
 	// Captura eventos relacionados aos botões da interface
 	public void actionPerformed(ActionEvent e) {
-		Object src = e.getSource();
+		Object src = e.getSource(); 
 
 		// Cadastro de nova Ave
 		if (src == cadastroAve)

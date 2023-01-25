@@ -4,7 +4,7 @@ public class Ave extends Pet {
 
 	private int mesCorte;
 	private String especie;
-
+ 
 	public Ave(String nome, String sexo, double peso, int idade, 
 		   int mesCorte, String especie) {
 

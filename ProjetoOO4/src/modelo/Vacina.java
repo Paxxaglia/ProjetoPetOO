@@ -18,11 +18,6 @@ public class Vacina  {
 		return "\n\nTipo da vacina: " + tipo + "\nData: " + data + "\nTempo de revacina:" + tempoRevacina + " meses";
 	}
 
-	public String revacina() {
-		return "Será necessária nova vacina daqui a " + tempoRevacina + "meses.";
-
-	}
-
 	// gets e sets
 
 	public int getTempoRevacina() {

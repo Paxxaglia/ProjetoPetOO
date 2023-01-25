@@ -8,7 +8,7 @@ import controle.*;
 import javax.swing.*;
 
 public class TelaDetalheVacina implements ActionListener {
-
+ 
 	private JTextField tipoVacina = new JTextField(10);
 	private JTextField dataVacina = new JTextField(10);
 	private JTextField tempoRevacina = new JTextField(10);
