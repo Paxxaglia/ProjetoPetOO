@@ -19,7 +19,8 @@ import controle.ControleDados;
 public class TelaDetalhePet implements ActionListener {
 	
 	//criação dos atributos da tela de detalhe
-
+	
+	private String sexoOpcoes[] = { "Macho", "Fêmea"}; 
 	private String porteOpcoes[] = { "Pequeno", "Medio", "Grande"}; 
 	private String CoresDePelo[] = { "Amarelo", "Branco", "Preto", "Cinza", "Rajado"}; 
 	private String CoresDeOlho[] = { "Azul", "Amarelo", "Verde", "2"}; 
@@ -31,11 +32,12 @@ public class TelaDetalhePet implements ActionListener {
 	private String s;
 
 	private JTextField nome = new JTextField(10);
-	private JTextField sexo = new JTextField(10);
+//	private JTextField sexo = new JTextField(10);
 	private JTextField peso = new JTextField(10);
 	private JTextField idade = new JTextField(10);
 	private JTextField especieAve = new JTextField(10);
 	private JTextField mesCorte = new JTextField(10);
+	private JComboBox<String> sexo = new JComboBox<String> (sexoOpcoes);
 	private JComboBox<String> porte = new JComboBox<String> (porteOpcoes); //particularidade cachorro
 	private JComboBox<String> corPelo = new JComboBox<String> (CoresDePelo);
 	private JComboBox<String> corOlho = new JComboBox<String> (CoresDeOlho);
@@ -148,7 +150,7 @@ public class TelaDetalhePet implements ActionListener {
 			
 			defineEstilos();
 			nome.setText(dados.getAves()[pos].getNome());
-			sexo.setText(dados.getAves()[pos].getSexo());
+			sexo.setSelectedItem(dados.getAves()[pos].getSexo());
 			peso.setText(String.valueOf(dados.getAves()[pos].getPeso()));
 			idade.setText(String.valueOf(dados.getAves()[pos].getIdade()));
 			mesCorte.setText(String.valueOf(dados.getAves()[pos].getMesCorte()));
@@ -190,7 +192,7 @@ public class TelaDetalhePet implements ActionListener {
 			
 			defineEstilos();
 			nome.setText(dados.getCachorros()[pos].getNome());
-			sexo.setText(dados.getCachorros()[pos].getSexo());
+			sexo.setSelectedItem(dados.getCachorros()[pos].getSexo());
 			peso.setText(String.valueOf(dados.getCachorros()[pos].getPeso()));
 			idade.setText(String.valueOf(dados.getCachorros()[pos].getIdade()));
 			porte.setSelectedItem(dados.getCachorros()[pos].getPorte());
@@ -204,7 +206,7 @@ public class TelaDetalhePet implements ActionListener {
 			
 			defineEstilos();
 			nome.setText(dados.getGatos()[pos].getNome());
-			sexo.setText(dados.getGatos()[pos].getSexo());
+			tempoPasseio.setText(String.valueOf(dados.getCachorros()[pos].getTempoPasseio()));
 			peso.setText(String.valueOf(dados.getGatos()[pos].getPeso()));
 			idade.setText(String.valueOf(dados.getGatos()[pos].getIdade()));
 			corPelo.setSelectedItem(dados.getGatos()[pos].getCorPelo());
@@ -302,7 +304,7 @@ public class TelaDetalhePet implements ActionListener {
 			if (opcao == 1 || opcao == 5) { // salvar os dados inseridos de aves
 
 				novoDado[1] = nome.getText();
-				novoDado[2] = sexo.getText();
+				novoDado[2] = (String) sexo.getSelectedItem();
 				novoDado[3] = peso.getText();
 				novoDado[4] = idade.getText();
 				novoDado[5] = mesCorte.getText();
@@ -312,7 +314,7 @@ public class TelaDetalhePet implements ActionListener {
 
 			} else if (opcao == 2 || opcao == 6) { // salva os dados inseridos de cachorros
 				novoDado[1] = nome.getText();
-				novoDado[2] = sexo.getText();
+				novoDado[2] = (String) sexo.getSelectedItem();
 				novoDado[3] = peso.getText();
 				novoDado[4] = idade.getText();
 				novoDado[5] = (String) porte.getSelectedItem();
@@ -323,7 +325,7 @@ public class TelaDetalhePet implements ActionListener {
 
 			}else if (opcao == 3 || opcao == 7) { // salva os dados inseridos de gato
 				novoDado[1] = nome.getText();
-				novoDado[2] = sexo.getText();
+				novoDado[2] = (String) sexo.getSelectedItem();
 				novoDado[3] = peso.getText();
 				novoDado[4] = idade.getText();
 				novoDado[5] = (String) corPelo.getSelectedItem();
