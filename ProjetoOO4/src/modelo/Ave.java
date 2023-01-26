@@ -11,7 +11,7 @@ public class Ave extends Pet {
 		this.nome = nome;
 		this.sexo = sexo;
 		this.peso = peso;
-		this.idade = idade;
+		this.idade = idade; 
 		this.mesCorte = mesCorte;
 		this.especie = especie;
 	}
