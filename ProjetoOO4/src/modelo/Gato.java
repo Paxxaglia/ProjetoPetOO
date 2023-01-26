@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.*;
+
 public class Gato extends Pet {
 
 	private String corPelo;
@@ -16,7 +18,6 @@ public class Gato extends Pet {
 		this.corPelo = corPelo;
 		this.corOlho = corOlho;
 		this.tamanhoPelagem = tamanhoPelagem;
-
 	}
 
 

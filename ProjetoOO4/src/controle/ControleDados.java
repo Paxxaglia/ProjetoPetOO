@@ -76,8 +76,8 @@ public class ControleDados {
 	public boolean cadastrarGato(String[] dadosGatos) {
 
 		Gato g = new Gato(dadosGatos[1], dadosGatos[2], Double.parseDouble(dadosGatos[3]),
-				Integer.parseInt(dadosGatos[4]), dadosGatos[5], (dadosGatos[6]),
-				dadosGatos[7]);
+				Integer.parseInt(dadosGatos[4]), dadosGatos[5], dadosGatos[6],
+				(dadosGatos[7]));
 
 		dados.cadastrarGato(g, Integer.parseInt(dadosGatos[0]));
 		return true;

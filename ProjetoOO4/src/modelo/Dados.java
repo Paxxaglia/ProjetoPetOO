@@ -1,6 +1,5 @@
  	package modelo;
 
-
 public class Dados {
 
 	private Ave[] ave = new Ave[50];

@@ -14,21 +14,19 @@ public class TelaDetalheVacina implements ActionListener {
 	private JTextField tempoRevacina = new JTextField(10);
 	private JButton botaoSalvar = new JButton(" Salvar ");
 	private JButton botaoExcluir = new JButton(" Excluir ");
-	private JFrame telaCadastroVacina = new JFrame("Cadastro de vacina");
 	private String[] novoDado = new String[8];
 	private ControleDados dados;
 	private JFrame cadastroVacina = new JFrame("Projeto Pet - Cadastro de Vacina");
 	private JLabel instrucaoPet = new JLabel(" Selecione o animal vacinado ");
 	private JLabel instrucaoTipo = new JLabel(" Digite o tipo da vacina: ");
 	private JLabel instrucaoData = new JLabel(" Digite a data da vacina: ");
-	private JLabel instrucaoRevacina = new JLabel(" Tempo de revacina (Ex: 6 meses):");
+	private JLabel instrucaoRevacina = new JLabel(" Tempo de revacina (Em meses):"); 
 	private JLabel informativo = new JLabel(
 			"<html>" + "Caso não seja necessário revacina," + "<br>"
 					+ "informe que o tempo de revacina é 0" + "</html>");
 
 	private int posicao;
 	private int opcao;
-	private String s;
 
 	public void inserirEditar(int op, ControleDados d, TelaVacina a, int pos) {
 
@@ -89,7 +87,6 @@ public class TelaDetalheVacina implements ActionListener {
 		posicao = pos;
 		dados = d;
 
-		telaCadastroVacina = new JFrame(s);
 
 		botaoExcluir.addActionListener(this);
 		botaoSalvar.addActionListener(this);
