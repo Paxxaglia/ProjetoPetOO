@@ -57,7 +57,7 @@ public class TelaMenu implements ActionListener{
 		botaoPets.addActionListener(this);
 
 
-	}
+	} 
 	
 	public static void main(String[] args) {
 		new TelaMenu();

@@ -9,7 +9,7 @@ public abstract class Pet {
 	protected double peso;
 	protected int idade;
 
-	public Pet() {
+	public Pet() { 
 
 	}
   

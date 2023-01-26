@@ -26,7 +26,7 @@ public class TelaDetalheVacina implements ActionListener {
 					+ "informe que o tempo de revacina é 0" + "</html>");
 
 	private int posicao;
-	private int opcao;
+	private int opcao; 
 
 	public void inserirEditar(int op, ControleDados d, TelaVacina a, int pos) {
 

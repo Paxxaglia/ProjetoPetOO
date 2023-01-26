@@ -10,7 +10,7 @@ public class Dados {
 	private int qtdGatos = 0;
 	private Vacina[] vacina = new Vacina[50];
 	private int qtdVacinas = 0;
-	 
+	  
 	
 	public void fillWithSomeData() {
 

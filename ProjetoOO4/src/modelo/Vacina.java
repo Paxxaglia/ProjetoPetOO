@@ -13,7 +13,7 @@ public class Vacina  {
 		this.tempoRevacina = tempoRevacina;
 
 	}
-
+ 
 	public String toString() {
 		return "\n\nTipo da vacina: " + tipo + "\nData: " + data + "\nTempo de revacina:" + tempoRevacina + " meses";
 	}

@@ -41,7 +41,7 @@ public class TelaVacina implements ActionListener, ListSelectionListener {
 
 			janela = new JFrame("Vacinas");
 			titulo = new JLabel("Vacinas Cadastradas");
-			titulo.setForeground(Color.yellow);
+			titulo.setForeground(Color.yellow); 
 			cadastroVacina = new JButton("Cadastrar");
 			refreshVacina = new JButton("Refresh");
 			janela.setBackground(Color.black);

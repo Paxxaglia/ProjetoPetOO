@@ -2,7 +2,7 @@ package controle;
  
 import modelo.*;
 
-public class ControleAve {
+public class ControleAve { 
 
 	private Ave[] ave;
 	private int qtdAves;

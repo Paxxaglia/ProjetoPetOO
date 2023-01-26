@@ -22,7 +22,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 	private JButton refreshCachorro;
 	private JButton refreshGato;
 	private int posicao;
-
+ 
 	private ControleDados dados;
 	private JList<String> listaAvesCadastradas;
 	private JList<String> listaCachorrosCadastrados;

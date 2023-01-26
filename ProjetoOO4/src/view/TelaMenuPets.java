@@ -23,7 +23,7 @@ public class TelaMenuPets implements ActionListener, ListSelectionListener {
 		this.dados = dados;
 
 		Font Arial = new Font("Arial Black", Font.BOLD, 25);
-
+ 
 		menu.add(botaoGerenciaGato);
 		menu.add(botaoGerenciaCachorro);
 		menu.add(botaoGerenciaAve);

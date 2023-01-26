@@ -10,7 +10,7 @@ public class Gato extends Pet {
 	private boolean surdez;
 
 	public Gato(String nome, String sexo, double peso, int idade, String corPelo, String corOlho,String tamanhoPelagem) {
- 
+  
 		this.nome = nome;
 		this.sexo = sexo;
 		this.peso = peso;

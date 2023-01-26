@@ -2,7 +2,7 @@ package controle;
 
 import modelo.*;
 
-public class ControleVacina {
+public class ControleVacina { 
  
 	private Vacina[] vacina;
 	private int qtdVacinas;

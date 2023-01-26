@@ -312,7 +312,7 @@ public class TelaDetalhePet implements ActionListener {
 				novoDado[5] = mesCorte.getText();
 				novoDado[6] = especieAve.getText();
 
-				res = dados.cadastrarAve(novoDado);
+				res = dados.cadastrarAve(novoDado); 
 
 			} else if (opcao == 2 || opcao == 6) { // salva os dados inseridos de cachorros
 				novoDado[1] = nome.getText();
@@ -321,7 +321,7 @@ public class TelaDetalhePet implements ActionListener {
 				novoDado[4] = idade.getText();
 				novoDado[5] = (String) porte.getSelectedItem();
 				novoDado[6] = tempoPasseio.getText();
-				novoDado[7] = raca.getText();
+				novoDado[7] = raca.getText(); 
 
 				res = dados.cadastrarCachorro(novoDado);
 

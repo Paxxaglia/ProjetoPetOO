@@ -8,7 +8,7 @@ public class Teste {
 	static Vacina v;
 
 	public static void main(String[] args) {
-
+  
 		g = new Gato("tigrao", "macho", 3, 12, "Branco", "Azul", "curta");
 		c = new Cachorro("Romeu", "Macho", 15, 2, "Medio", 33, "Bull-Terrier");
 		p = new Ave("Chico", "Macho", 0.700, 1, 5, "Tucano");

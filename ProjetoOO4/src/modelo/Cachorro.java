@@ -5,7 +5,7 @@ public class Cachorro extends Pet {
 	private String porte;
 	private int tempoPasseio;
 	private String raca;
-
+ 
 	public Cachorro(String nome, String sexo, double peso, int idade, String porte, int tempoPasseio, String raca) {
  
 		this.nome = nome;
