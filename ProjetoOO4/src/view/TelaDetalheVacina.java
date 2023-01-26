@@ -110,7 +110,7 @@ public class TelaDetalheVacina implements ActionListener {
 		Object src = e.getSource();
 
 		if (src == botaoSalvar) {
-			System.out.println("chegou aqui");
+
 			boolean res = false;
 
 			if (opcao == 0) // cadastrar nova vacina

@@ -33,20 +33,20 @@ public class TelaMenu implements ActionListener{
 		menu.add(botaoPets);
 		menu.add(botaoVacinas);
 
-		menu.setSize(800, 400);
+		menu.setSize(400, 450);
 		menu.setLayout(null);
 		menu.setVisible(true);
 		menu.getContentPane().setBackground(Color.darkGray);
 		menu.setLocationRelativeTo(null);
 
 
-		botaoPets.setBounds(150, 125, 200, 60);
+		botaoPets.setBounds(95, 100, 200, 60);
 		botaoPets.setForeground(Color.BLACK);
 		botaoPets.setBackground(Color.yellow);
 		botaoPets.setFont(Arial);
 		botaoPets.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
 
-		botaoVacinas.setBounds(425, 125, 200, 60);
+		botaoVacinas.setBounds(95, 200, 200, 60);
 		botaoVacinas.setForeground(Color.BLACK);
 		botaoVacinas.setBackground(Color.YELLOW);
 		botaoVacinas.setFont(Arial);

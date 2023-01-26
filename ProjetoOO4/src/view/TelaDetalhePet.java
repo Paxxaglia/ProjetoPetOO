@@ -148,6 +148,7 @@ public class TelaDetalhePet implements ActionListener {
 		// Preenche dados com dados da ave clicada
 		if (op == 5) {
 			
+			
 			defineEstilos();
 			nome.setText(dados.getAves()[pos].getNome());
 			sexo.setSelectedItem(dados.getAves()[pos].getSexo());
@@ -189,6 +190,7 @@ public class TelaDetalhePet implements ActionListener {
 
 
 		if (op == 6) { // preenche a lista com os dados do cachorro clicado
+			
 			
 			defineEstilos();
 			nome.setText(dados.getCachorros()[pos].getNome());

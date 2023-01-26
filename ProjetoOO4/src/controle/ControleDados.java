@@ -1,7 +1,7 @@
 package controle;
 
 import modelo.*;
- 
+
 public class ControleDados {
 
 	private Dados dados = new Dados();
@@ -72,12 +72,11 @@ public class ControleDados {
 		return true;
 
 	}
-	
+
 	public boolean cadastrarGato(String[] dadosGatos) {
 
-		Gato g = new Gato(dadosGatos[1], dadosGatos[2],
-				Double.parseDouble(dadosGatos[3]),
-				Integer.parseInt(dadosGatos[4]), dadosGatos[5],(dadosGatos[6]),
+		Gato g = new Gato(dadosGatos[1], dadosGatos[2], Double.parseDouble(dadosGatos[3]),
+				Integer.parseInt(dadosGatos[4]), dadosGatos[5], (dadosGatos[6]),
 				dadosGatos[7]);
 
 		dados.cadastrarGato(g, Integer.parseInt(dadosGatos[0]));
@@ -93,8 +92,7 @@ public class ControleDados {
 		dados.cadastrarVacina(v, Integer.parseInt(dadosVacinas[0]));
 		return true;
 	}
-	
-	
+
 	public boolean removerAve(int i) {
 		String aveRemovida = dados.getAves()[i].getNome();
 
@@ -119,16 +117,16 @@ public class ControleDados {
 		}
 
 	}
-	
+
 	public boolean removerGato(int i) {
 		String gatoRemovido = dados.getGatos()[i].getNome();
 
 		if (i == (dados.getQtdGatos() - 1)) {// o gato que vai ser removida ta no final do
-											// array
+												// array
 			dados.setQtdGatos(dados.getQtdGatos() - 1);
 			dados.getGatos()[dados.getQtdGatos()] = null;
 			return true;
-		} else {// o gato  a ser removido ta no meio do array
+		} else {// o gato a ser removido ta no meio do array
 			int cont = 0;
 			while (dados.getGatos()[cont].getNome().compareTo(gatoRemovido) != 0) {
 				cont++;
@@ -144,18 +142,20 @@ public class ControleDados {
 		}
 
 	}
-	
+
 	public boolean removerCachorro(int i) {
 		String cachorroRemovido = dados.getCachorros()[i].getNome();
 
-		if (i == (dados.getQtdCachorros() - 1)) {// A cachorro que vai ser removida está no final do
-											      // array
+		if (i == (dados.getQtdCachorros() - 1)) {// A cachorro que vai ser removida está
+													// no final do
+													// array
 			dados.setQtdCachorros(dados.getQtdCachorros() - 1);
 			dados.getCachorros()[dados.getQtdCachorros()] = null;
 			return true;
 		} else {// a cachorro a ser removido está no meio do array
 			int cont = 0;
-			while (dados.getCachorros()[cont].getNome().compareTo(cachorroRemovido) != 0) {
+			while (dados.getCachorros()[cont].getNome()
+					.compareTo(cachorroRemovido) != 0) {
 				cont++;
 			}
 
@@ -169,12 +169,13 @@ public class ControleDados {
 		}
 
 	}
-	
+
 	public boolean removerVacina(int i) {
 		String vacinaRemovida = dados.getVacinas()[i].getTipo();
 
-		if (i == (dados.getQtdVacinas() - 1)) {// A vacina que vai ser removida está no final do
-											      // array
+		if (i == (dados.getQtdVacinas() - 1)) {// A vacina que vai ser removida está no
+												// final do
+												// array
 			dados.setQtdVacinas(dados.getQtdVacinas() - 1);
 			dados.getVacinas()[dados.getQtdVacinas()] = null;
 			return true;
@@ -193,6 +194,39 @@ public class ControleDados {
 			return true;
 		}
 
+	}
+
+	public int buscarPet(String filtro, int opcao) {
+
+		if (opcao == 1) {
+			int petSelecionado = 0;
+			for (int i = 0; i < dados.getQtdAves(); i++) {
+				if (dados.getAves()[i].getNome().equals(filtro)) {
+					petSelecionado = i;
+					return petSelecionado;
+				}
+			}
+
+		}
+		if (opcao == 3) {
+			int petSelecionado = 0;
+			for (int i = 0; i < dados.getQtdCachorros(); i++) {
+				if (dados.getCachorros()[i].getNome().equals(filtro)) {
+					petSelecionado = i;
+					return petSelecionado;
+				}
+			}
+		} else {
+
+			int petSelecionado = 0;
+			for (int i = 0; i < dados.getQtdGatos(); i++) {
+				if (dados.getGatos()[i].getNome().equals(filtro)) {
+					petSelecionado = i;
+					return petSelecionado;
+				}
+			}
+		}
+		return 100;
 	}
 
 }
