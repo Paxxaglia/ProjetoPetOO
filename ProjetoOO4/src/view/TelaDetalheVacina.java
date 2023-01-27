@@ -8,7 +8,7 @@ import controle.*;
 import javax.swing.*;
 
 public class TelaDetalheVacina implements ActionListener {
- 
+
 	private JTextField tipoVacina = new JTextField(10);
 	private JTextField dataVacina = new JTextField(10);
 	private JTextField tempoRevacina = new JTextField(10);
@@ -20,13 +20,13 @@ public class TelaDetalheVacina implements ActionListener {
 	private JLabel instrucaoPet = new JLabel(" Selecione o animal vacinado ");
 	private JLabel instrucaoTipo = new JLabel(" Digite o tipo da vacina: ");
 	private JLabel instrucaoData = new JLabel(" Digite a data da vacina: ");
-	private JLabel instrucaoRevacina = new JLabel(" Tempo de revacina (Em meses):"); 
+	private JLabel instrucaoRevacina = new JLabel(" Tempo de revacina (Em meses):");
 	private JLabel informativo = new JLabel(
 			"<html>" + "Caso não seja necessário revacina," + "<br>"
 					+ "informe que o tempo de revacina é 0" + "</html>");
 
 	private int posicao;
-	private int opcao; 
+	private int opcao;
 
 	public void inserirEditar(int op, ControleDados d, TelaVacina a, int pos) {
 
@@ -87,7 +87,6 @@ public class TelaDetalheVacina implements ActionListener {
 		posicao = pos;
 		dados = d;
 
-
 		botaoExcluir.addActionListener(this);
 		botaoSalvar.addActionListener(this);
 
@@ -105,30 +104,38 @@ public class TelaDetalheVacina implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		Object src = e.getSource();
-
+		
 		if (src == botaoSalvar) {
 
-			boolean res = false;
+		try {	boolean res = false;
 
 			if (opcao == 0) // cadastrar nova vacina
 				novoDado[0] = Integer.toString(dados.getQtdVacinas());
-			else
+			else 
 				novoDado[0] = Integer.toString(posicao);
 
-			if (opcao == 1 || opcao == 0) { // salvar os dados inseridos de vacinas
+				 // salvar os dados inseridos de vacinas
 
-				novoDado[1] = tipoVacina.getText();
-				novoDado[2] = dataVacina.getText();
-				novoDado[3] = tempoRevacina.getText();
+					novoDado[1] = tipoVacina.getText();
+					novoDado[2] = dataVacina.getText();
+					novoDado[3] = tempoRevacina.getText();
 
-				res = dados.cadastrarVacina(novoDado);
+					res = dados.cadastrarVacina(novoDado);
+				
+				if (res) 
+					mensagemErroCadastro();
+				 else
+					mensagemErroCadastro();
+				
 
-			}
-			if (res) {
+			} catch (NullPointerException exc1) {
 				mensagemSucessoCadastro();
+			} catch (NumberFormatException exc2) {
+				mensagemErroCadastro();
 			}
 		}
 		
+
 		if (src == botaoExcluir) {
 			boolean res = false;
 
@@ -136,10 +143,14 @@ public class TelaDetalheVacina implements ActionListener {
 
 			if (opcao == 1) {
 				res = dados.removerVacina(posicao);
-				if (res)
-					mensagemSucessoExclusao();
-				else
-					mensagemErroExclusao();
+
+				try {
+					if (res)
+						mensagemSucessoExclusao();
+				} catch (NumberFormatException e2) {
+					mensagemErroCadastro();
+				}
+
 			}
 		}
 	}
@@ -150,11 +161,18 @@ public class TelaDetalheVacina implements ActionListener {
 		cadastroVacina.dispose();
 	}
 
+	public void mensagemErroCadastro() {
+		JOptionPane.showMessageDialog(null, "Não foi possivel cadastrar, verifique se os dados estão preenchidos corretamente!", null,
+				JOptionPane.INFORMATION_MESSAGE);
+		cadastroVacina.dispose();
+	}
+
 	public void mensagemSucessoExclusao() {
 		JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null,
 				JOptionPane.INFORMATION_MESSAGE);
 		cadastroVacina.dispose();
 	}
+
 	public void mensagemErroExclusao() {
 		JOptionPane.showMessageDialog(null,
 				"Ocorreu um erro ao excluir o dado.\n "

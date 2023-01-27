@@ -1,7 +1,6 @@
 package view;
- 
-import java.awt.*; 
 
+import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,22 +9,25 @@ import javax.swing.*;
 
 import controle.ControleDados;
 
+/**
+ * Tela de menu com botoes que direcionam para as outras telas
+ * 
+ * @author Iago Passaglia
+ *
+ */
 
-public class TelaMenu implements ActionListener{
+public class TelaMenu implements ActionListener {
 
 	private JFrame menu = new JFrame("Projeto Pet - MENU");
 	private JButton botaoPets = new JButton(" Pets ");
 	private JButton botaoVacinas = new JButton(" Vacinas ");
 	private ControleDados dados = new ControleDados();
 
-
-	
 	/**
-	 * 
-	 */ 
-	
-	TelaMenu() {
+	 * Método que cria a tela de menu
+	 */
 
+	TelaMenu() {
 
 		Font Arial = new Font("Arial Black", Font.BOLD, 25);
 
@@ -39,7 +41,6 @@ public class TelaMenu implements ActionListener{
 		menu.getContentPane().setBackground(Color.darkGray);
 		menu.setLocationRelativeTo(null);
 
-
 		botaoPets.setBounds(95, 100, 200, 60);
 		botaoPets.setForeground(Color.BLACK);
 		botaoPets.setBackground(Color.yellow);
@@ -52,29 +53,29 @@ public class TelaMenu implements ActionListener{
 		botaoVacinas.setFont(Arial);
 		botaoVacinas.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
 
-		
 		botaoVacinas.addActionListener(this);
 		botaoPets.addActionListener(this);
 
+	}
 
-	} 
-	
 	public static void main(String[] args) {
 		new TelaMenu();
 	}
-	
+
+	/*
+	 * Reconhece se o botão foi clicado para abrir uma nova tela
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
-		
-		if(src == botaoPets) {
+
+		if (src == botaoPets) {
 			new TelaMenuPets(dados);
-		
+
 		}
-		
-		if(src == botaoVacinas) {
+
+		if (src == botaoVacinas) {
 			new TelaVacina().mostrarDados(dados, 1);
 		}
-		
 
 	}
 
