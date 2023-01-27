@@ -38,7 +38,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 	private String[] listaNomes = new String[50];
 
 	/**
-	 * Método que cria a tela com a lista de pets conforme botao selecionado na
+	 * Metodo que cria a tela com a lista de pets conforme botao selecionado na
 	 * TelaMenuPets
 	 * 
 	 * @param dados definicao do controle de dados
@@ -251,7 +251,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 	}
 
 	/*
-	 *  Captura eventos relacionados ao JList
+	 * Captura eventos relacionados ao JList
 	 */
 
 	public void valueChanged(ListSelectionEvent e) {
@@ -278,38 +278,38 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 
 	}
 
-	// Captura eventos relacionados aos botões da interface
+	// Captura eventos relacionados aos botoes da interface
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
 		/*
 		 * Cadastro de nova Ave
 		 */
-		
+
 		if (src == cadastroAve)
 			new TelaDetalhePet().inserirEditar(1, dados, this, 0);
 
 		/*
-		 *  Cadastro de novo cachorro
+		 * Cadastro de novo cachorro
 		 */
 		if (src == cadastroCachorro)
 			new TelaDetalhePet().inserirEditar(2, dados, this, 0);
 
 		/*
-		 *  Cadastro de novo gato
+		 * Cadastro de novo gato
 		 */
 		if (src == cadastroGato)
 			new TelaDetalhePet().inserirEditar(3, dados, this, 0);
 
 		/*
-		 *  Atualiza a lista de nome de aves
+		 * Atualiza a lista de nome de aves
 		 */
 		if (src == refreshAve) {
 			listaAvesCadastradas.setListData(new ControleAve(dados).getNomeAve());
 			listaAvesCadastradas.updateUI();
 		}
 		/*
-		 *  Atualiza a lista de nome de cachorros
+		 * Atualiza a lista de nome de cachorros
 		 */
 		if (src == refreshCachorro) {
 			listaCachorrosCadastrados
@@ -317,7 +317,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 			listaCachorrosCadastrados.updateUI();
 		}
 		/*
-		 *  Atualiza a lista de nome de gatos
+		 * Atualiza a lista de nome de gatos
 		 */
 		if (src == refreshGato) {
 			listaGatosCadastrados.setListData(new ControleGato(dados).getNomeGato());
@@ -327,23 +327,24 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 		if (e.getSource() == buscaAve) {
 
 			/*
-			 *  mostra tela de uma determinada ave pesquisada
+			 * mostra tela de uma determinada ave pesquisada
 			 */
 
 			/*
-			 *  Atribui o valor escrito no JTextfield a variavel nomeAve
+			 * Atribui o valor escrito no JTextfield a variavel nomeAve
 			 */
 			String nomeAve = pesquisaInfo.getText();
 
 			/*
-			 *  Atribui o retorno de buscarPet a variavel posição
+			 * Atribui o retorno de buscarPet a variavel posição
 			 */
 			posicao = dados.buscarPet(nomeAve, 1);
 
 			if (posicao < 100) {
-				
+
 				/*
-				 *  cria a tela de edição com o pet pesquisado conforme posicao retornada na funcao buscarPet
+				 * cria a tela de edição com o pet pesquisado conforme posicao retornada
+				 * na funcao buscarPet
 				 */
 
 				new TelaDetalhePet().inserirEditar(5, dados, this, posicao);
@@ -352,31 +353,31 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 				mensagemErro();
 			}
 		}
-		
-		
+
 		if (e.getSource() == buscaCachorro) {
 
 			/*
-			 *  mostra tela de um determinado cachorro pesquisado
+			 * mostra tela de um determinado cachorro pesquisado
 			 */
 
 			/*
-			 *  Atribui o valor escrito no JTextfield a variavel nomeCachorro
+			 * Atribui o valor escrito no JTextfield a variavel nomeCachorro
 			 */
 
 			String nomeCachorro = pesquisaInfo.getText();
-			
+
 			/*
-			 *  Atribui o retorno de buscarPet a variavel posição
+			 * Atribui o retorno de buscarPet a variavel posição
 			 */
-			
+
 			posicao = dados.buscarPet(nomeCachorro, 3);
-			
+
 			if (posicao < 100) {
 				/*
-				 *  cria a tela de edição com o pet pesquisado conforme posicao retornada na funcao buscarPet
+				 * cria a tela de edicao com o pet pesquisado conforme posicao retornada
+				 * na funcao buscarPet
 				 */
-				
+
 				new TelaDetalhePet().inserirEditar(6, dados, this, posicao);
 			} else {
 				mensagemErro();
@@ -386,25 +387,26 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 		if (e.getSource() == buscaGato) {
 
 			/*
-			 *  mostra tela de uma determinada ave pesquisada
+			 * mostra tela de uma determinada ave pesquisada
 			 */
 
 			/*
-			 *  Atribui o valor escrito no JTextfield a variavel nomeAve
+			 * Atribui o valor escrito no JTextfield a variavel nomeAve
 			 */
 			String nomeGato = pesquisaInfo.getText();
-			
+
 			/*
-			 *  Atribui o retorno de buscarPet a variavel posição
+			 * Atribui o retorno de buscarPet a variavel posição
 			 */
-			
+
 			posicao = dados.buscarPet(nomeGato, 2);
 			if (posicao < 100) {
-				
+
 				/*
-				 *  cria a tela de edição com o pet pesquisado conforme posicao retornada na funcao buscarPet
+				 * cria a tela de ediçao com o pet pesquisado conforme posicao retornada
+				 * na funcao buscarPet
 				 */
-				
+
 				new TelaDetalhePet().inserirEditar(7, dados, this, posicao);
 			} else {
 				mensagemErro();
@@ -412,7 +414,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 		}
 
 	}
-	
+
 	/**
 	 * Metodo que exibe mensagem de erro caso o programa nao encontre o pet
 	 */

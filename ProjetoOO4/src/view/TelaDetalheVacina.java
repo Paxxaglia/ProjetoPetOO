@@ -7,7 +7,17 @@ import java.awt.event.ActionListener;
 import controle.*;
 import javax.swing.*;
 
+/**
+ * Tela que permite cadastrar/editar as vacinas
+ * 
+ * @author Iago Passaglia
+ * @version 1.0
+ */
 public class TelaDetalheVacina implements ActionListener {
+
+	/*
+	 * Criando os artigos visuais da tela
+	 */
 
 	private JTextField tipoVacina = new JTextField(10);
 	private JTextField dataVacina = new JTextField(10);
@@ -28,6 +38,14 @@ public class TelaDetalheVacina implements ActionListener {
 	private int posicao;
 	private int opcao;
 
+	/**
+	 * Método que cria a tela de detalhe da vacina para edição/cadastro
+	 * 
+	 * @param op  Cadastro ou edição de vacina( 1 para edicao e 0 para cadastro)
+	 * @param d   definição do controleDados
+	 * @param a   ligacao com a telaVacina
+	 * @param pos posicao da vacina que será editada
+	 */
 	public void inserirEditar(int op, ControleDados d, TelaVacina a, int pos) {
 
 		dados = new ControleDados();
@@ -38,7 +56,9 @@ public class TelaDetalheVacina implements ActionListener {
 		dados = d;
 		posicao = pos;
 
-		// Definições dos estilos
+		/*
+		 * Definições dos estilos
+		 */
 
 		instrucaoTipo.setForeground(Color.yellow);
 		instrucaoData.setForeground(Color.yellow);
@@ -48,9 +68,10 @@ public class TelaDetalheVacina implements ActionListener {
 		tempoRevacina.setBackground(Color.LIGHT_GRAY);
 		dataVacina.setBackground(Color.LIGHT_GRAY);
 		tipoVacina.setBackground(Color.LIGHT_GRAY);
-//		animalVacinado.setBackground(Color.LIGHT_GRAY);
 
-		// estilo do botao
+		/*
+		 * estilo dos botoes
+		 */
 
 		botaoExcluir.setForeground(Color.BLACK);
 		botaoExcluir.setBackground(Color.YELLOW);
@@ -64,7 +85,9 @@ public class TelaDetalheVacina implements ActionListener {
 		botaoSalvar.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
 		botaoSalvar.setBounds(600, 200, 300, 300);
 
-		// alterações de design da tela
+		/*
+		 * alterações de design da tela
+		 */
 
 		cadastroVacina.setBackground(Color.black);
 		cadastroVacina.setSize(350, 550);
@@ -73,7 +96,9 @@ public class TelaDetalheVacina implements ActionListener {
 		cadastroVacina.getContentPane().setBackground(Color.darkGray);
 		cadastroVacina.setLocationRelativeTo(null);
 
-		// adicionando os objetos gráficos na tela
+		/*
+		 * adicionando os objetos gráficos na tela
+		 */
 
 		cadastroVacina.add(instrucaoTipo);
 		cadastroVacina.add(tipoVacina);
@@ -90,7 +115,9 @@ public class TelaDetalheVacina implements ActionListener {
 		botaoExcluir.addActionListener(this);
 		botaoSalvar.addActionListener(this);
 
-		// Preenche dados com dados da vacina clicada
+		/*
+		 * Preenche a tela com dados da vacina clicada
+		 */
 		if (op == 1) {
 
 			cadastroVacina.add(botaoExcluir);
@@ -104,29 +131,42 @@ public class TelaDetalheVacina implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		Object src = e.getSource();
-		
+
 		if (src == botaoSalvar) {
 
-		try {	boolean res = false;
+			try {
+				boolean res = false;
 
-			if (opcao == 0) // cadastrar nova vacina
-				novoDado[0] = Integer.toString(dados.getQtdVacinas());
-			else 
-				novoDado[0] = Integer.toString(posicao);
+				/*
+				 * cadastrar nova vacina
+				 * 
+				 */
 
-				 // salvar os dados inseridos de vacinas
+				if (opcao == 0)
+					novoDado[0] = Integer.toString(dados.getQtdVacinas());
+				else
+					novoDado[0] = Integer.toString(posicao);
 
-					novoDado[1] = tipoVacina.getText();
-					novoDado[2] = dataVacina.getText();
-					novoDado[3] = tempoRevacina.getText();
+				/*
+				 * salvar os dados inseridos na vacina cadastrada ou editada
+				 * 
+				 */
 
-					res = dados.cadastrarVacina(novoDado);
-				
-				if (res) 
+				novoDado[1] = tipoVacina.getText();
+				novoDado[2] = dataVacina.getText();
+				novoDado[3] = tempoRevacina.getText();
+
+				res = dados.cadastrarVacina(novoDado);
+
+				/*
+				 * insere mensagem de sucesso caso os dados tenham sido inseridos de
+				 * acordo e mensagem de erro caso falte algum dado ou esteja diferente do
+				 * previsto
+				 */
+				if (res)
+					mensagemSucessoCadastro();
+				else
 					mensagemErroCadastro();
-				 else
-					mensagemErroCadastro();
-				
 
 			} catch (NullPointerException exc1) {
 				mensagemSucessoCadastro();
@@ -134,12 +174,13 @@ public class TelaDetalheVacina implements ActionListener {
 				mensagemErroCadastro();
 			}
 		}
-		
 
 		if (src == botaoExcluir) {
 			boolean res = false;
 
-			// exclui ave
+			/*
+			 * exclui vacina
+			 */
 
 			if (opcao == 1) {
 				res = dados.removerVacina(posicao);
@@ -162,9 +203,9 @@ public class TelaDetalheVacina implements ActionListener {
 	}
 
 	public void mensagemErroCadastro() {
-		JOptionPane.showMessageDialog(null, "Não foi possivel cadastrar, verifique se os dados estão preenchidos corretamente!", null,
-				JOptionPane.INFORMATION_MESSAGE);
-		cadastroVacina.dispose();
+		JOptionPane.showMessageDialog(null,
+				"Não foi possivel cadastrar, verifique se os dados estão preenchidos corretamente!",
+				null, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void mensagemSucessoExclusao() {

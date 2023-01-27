@@ -24,7 +24,7 @@ public class TelaMenu implements ActionListener {
 	private ControleDados dados = new ControleDados();
 
 	/**
-	 * Método que cria a tela de menu
+	 * Metodo que cria a tela de menu
 	 */
 
 	TelaMenu() {
@@ -63,7 +63,7 @@ public class TelaMenu implements ActionListener {
 	}
 
 	/*
-	 * Reconhece se o botão foi clicado para abrir uma nova tela
+	 * Reconhece se o botao foi clicado para abrir uma nova tela
 	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -74,7 +74,8 @@ public class TelaMenu implements ActionListener {
 		}
 
 		if (src == botaoVacinas) {
-			new TelaVacina().mostrarDados(dados, 1);
+			new TelaVacina().mostrarDados(dados
+					);
 		}
 
 	}
