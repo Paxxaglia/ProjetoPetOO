@@ -1,6 +1,10 @@
 package modelo;
 
-import java.util.ArrayList;
+/**
+ * Classe Abstrata Mãe Pet contem os valores comuns entre seus herdeiros.
+ * @author Polen
+ * @version 1.0
+ */
 
 public abstract class Pet {
 
@@ -8,10 +12,6 @@ public abstract class Pet {
 	protected String sexo;
 	protected double peso;
 	protected int idade;
-
-	public Pet() { 
-
-	}
   
 	// getters e setters
 

@@ -1,11 +1,18 @@
 package modelo;
 
+/**
+ * Classe para teste dos construtores e toStrings d140as outras classes
+ * @author Polen
+ * 
+ */
+
 public class Teste {
 
 	static Gato g;
 	static Cachorro c;
 	static Ave p;
 	static Vacina v;
+
 
 	public static void main(String[] args) {
   

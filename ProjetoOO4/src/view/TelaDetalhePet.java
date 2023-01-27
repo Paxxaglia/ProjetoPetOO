@@ -66,7 +66,7 @@ public class TelaDetalhePet implements ActionListener {
 	private JLabel instrucaoCorOlho = new JLabel ("Selecione a cor do olho:     ");
 	
 	private JLabel instrucaoPorte = new JLabel("Selecione o porte do cachorro: ");
-	private JLabel instrucaoRaça = new JLabel("Digite a raça do cachorro:     ");
+	private JLabel instrucaoRaca = new JLabel("Digite a raca do cachorro:     ");
 	private JLabel informativo = new JLabel(" Caso as asas nao sejam cortadas, " + "informe que o mes de corte é 0  ");
 	
 	public void defineEstilos(){
@@ -77,7 +77,7 @@ public class TelaDetalhePet implements ActionListener {
 		intrucaoIdade.setForeground(Color.yellow);
 		instrucaoTempoPasseio.setForeground(Color.yellow);
 		instrucaoPorte.setForeground(Color.yellow);
-		instrucaoRaça.setForeground(Color.yellow);
+		instrucaoRaca.setForeground(Color.yellow);
 		instrucaoEspecie.setForeground(Color.yellow);
 		instrucaoMesCorte.setForeground(Color.yellow);
 		instrucaoPelagem.setForeground(Color.yellow);
@@ -237,7 +237,7 @@ public class TelaDetalhePet implements ActionListener {
 			telaCadastro.add(porte);
 			telaCadastro.add(instrucaoTempoPasseio);
 			telaCadastro.add(tempoPasseio);
-			telaCadastro.add(instrucaoRaça);
+			telaCadastro.add(instrucaoRaca);
 			telaCadastro.add(raca);
 
 			telaCadastro.add(botaoSalvar);
