@@ -2,6 +2,12 @@ package controle;
 
 import modelo.*;
 
+/**
+ * Controle responsavel por manipular os dados do sistema
+ * 
+ * @author Iago Passaglia
+ * @version 1.0
+ */
 public class ControleDados {
 
 	private Dados dados = new Dados();
@@ -50,8 +56,18 @@ public class ControleDados {
 		return dados.getQtdVacinas();
 	}
 
+	/**
+	 * Metodo que efetua o cadastro de uma ave
+	 * 
+	 * @param dadosAves Array contendo os atributos a serem cadastrados
+	 * @return true após efetuar o cadastro de uma nova ave
+	 */
 	public boolean cadastrarAve(String[] dadosAves) {
 
+		/*
+		 * declara os atributos do objeto como sendo aqueles que foram passados no
+		 * parametro
+		 */
 		Ave a = new Ave(dadosAves[1], dadosAves[2], Double.parseDouble(dadosAves[3]),
 				Integer.parseInt(dadosAves[4]), Integer.parseInt(dadosAves[5]),
 				dadosAves[6]);
@@ -60,9 +76,19 @@ public class ControleDados {
 		return true;
 
 	}
- 
+
+	/**
+	 * Metodo que efetua o cadastro de um cachorro
+	 * 
+	 * @param dadosCachorros Array contendo os atributos a serem cadastrados
+	 * @return true após efetuar o cadastro de um novo cachorro
+	 */
 	public boolean cadastrarCachorro(String[] dadosCachorros) {
 
+		/*
+		 * declara os atributos do objeto como sendo aqueles que foram passados no
+		 * parametro
+		 */
 		Cachorro c = new Cachorro(dadosCachorros[1], dadosCachorros[2],
 				Double.parseDouble(dadosCachorros[3]),
 				Integer.parseInt(dadosCachorros[4]), dadosCachorros[5],
@@ -73,8 +99,19 @@ public class ControleDados {
 
 	}
 
+	/**
+	 * Metodo que efetua o cadastro de um gato
+	 * 
+	 * @param dadosGatos Array contendo os atributos a serem cadastrados
+	 * @return true após efetuar o cadastro de um novo gato
+	 */
+
 	public boolean cadastrarGato(String[] dadosGatos) {
 
+		/*
+		 * declara os atributos do objeto como sendo aqueles que foram passados no
+		 * parametro
+		 */
 		Gato g = new Gato(dadosGatos[1], dadosGatos[2], Double.parseDouble(dadosGatos[3]),
 				Integer.parseInt(dadosGatos[4]), dadosGatos[5], dadosGatos[6],
 				(dadosGatos[7]));
@@ -84,8 +121,19 @@ public class ControleDados {
 
 	}
 
+	/**
+	 * Metodo que efetua o cadastro de uma vacina
+	 * 
+	 * @param dadosVacinas Array contendo os atributos a serem cadastrados
+	 * @return true após efetuar o cadastro de uma nova vacina
+	 */
+
 	public boolean cadastrarVacina(String[] dadosVacinas) {
 
+		/*
+		 * declara os atributos do objeto como sendo aqueles que foram passados no
+		 * parametro
+		 */
 		Vacina v = new Vacina(dadosVacinas[1], dadosVacinas[2],
 				Integer.parseInt(dadosVacinas[3]));
 
@@ -93,15 +141,21 @@ public class ControleDados {
 		return true;
 	}
 
+	/**
+	 * Metodo para remoção de pets
+	 * 
+	 * @param i posicao da ave a ser removida
+	 * @return true caso tudo ocorra bem
+	 */
 	public boolean removerAve(int i) {
 		String aveRemovida = dados.getAves()[i].getNome();
 
-		if (i == (dados.getQtdAves() - 1)) {// A ave que vai ser removida ta no final do
+		if (i == (dados.getQtdAves() - 1)) {// A ave que vai ser removida está no final do
 											// array
 			dados.setQtdAves(dados.getQtdAves() - 1);
 			dados.getAves()[dados.getQtdAves()] = null;
 			return true;
-		} else {// a ave a ser removido ta no meio do array
+		} else {// a ave a ser removido está no meio do array
 			int cont = 0;
 			while (dados.getAves()[cont].getNome().compareTo(aveRemovida) != 0) {
 				cont++;
@@ -121,12 +175,12 @@ public class ControleDados {
 	public boolean removerGato(int i) {
 		String gatoRemovido = dados.getGatos()[i].getNome();
 
-		if (i == (dados.getQtdGatos() - 1)) {// o gato que vai ser removida ta no final do
+		if (i == (dados.getQtdGatos() - 1)) {// o gato que vai ser removida está no final do
 												// array
 			dados.setQtdGatos(dados.getQtdGatos() - 1);
 			dados.getGatos()[dados.getQtdGatos()] = null;
 			return true;
-		} else {// o gato a ser removido ta no meio do array
+		} else {// o gato a ser removido está no meio do array
 			int cont = 0;
 			while (dados.getGatos()[cont].getNome().compareTo(gatoRemovido) != 0) {
 				cont++;
@@ -169,6 +223,13 @@ public class ControleDados {
 		}
 
 	}
+	
+	/**
+	 * Metodo para remoção de vacinas
+	 * 
+	 * @param i posicao da vacina a ser removida
+	 * @return true caso tudo ocorra bem
+	 */
 
 	public boolean removerVacina(int i) {
 		String vacinaRemovida = dados.getVacinas()[i].getTipo();
@@ -179,7 +240,7 @@ public class ControleDados {
 			dados.setQtdVacinas(dados.getQtdVacinas() - 1);
 			dados.getVacinas()[dados.getQtdVacinas()] = null;
 			return true;
-		} else {// a vacina a ser removido está no meio do array
+		} else {// a vacina a ser removida está no meio do array
 			int cont = 0;
 			while (dados.getVacinas()[cont].getTipo().compareTo(vacinaRemovida) != 0) {
 				cont++;
@@ -196,8 +257,18 @@ public class ControleDados {
 
 	}
 
+	
+	/**
+	 * Metodo que pesquisa um determinado pet por meio do nome
+	 * @param filtro Nome do pet a ser pesquisado
+	 * @param opcao tipo do pet a ser pesquisado
+	 * @return posição do pet encontrado caso encontre e 100 caso nao encontre
+	 */
 	public int buscarPet(String filtro, int opcao) {
 
+		/*
+		 * pesquisar ave
+		 */
 		if (opcao == 1) {
 			int petSelecionado = 0;
 			for (int i = 0; i < dados.getQtdAves(); i++) {
@@ -209,6 +280,9 @@ public class ControleDados {
 
 		}
 		if (opcao == 3) {
+			/*
+			 * pesquisar cachorro
+			 */
 			int petSelecionado = 0;
 			for (int i = 0; i < dados.getQtdCachorros(); i++) {
 				if (dados.getCachorros()[i].getNome().equals(filtro)) {
@@ -217,6 +291,9 @@ public class ControleDados {
 				}
 			}
 		} else {
+			/*
+			 * pesquisar gato
+			 */
 
 			int petSelecionado = 0;
 			for (int i = 0; i < dados.getQtdGatos(); i++) {

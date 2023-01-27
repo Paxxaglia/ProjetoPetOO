@@ -1,7 +1,7 @@
 package modelo;
 
 /**
- * Classe dados faz pré cadastro de objetos no sistema
+ * Classe dados simula um banco de dados no codigo
  * 
  * @author Iago Passaglia
  * @version 1.0
@@ -40,12 +40,15 @@ public class Dados {
 		/**
 		 * qtd definem quantos objetos serão criados.
 		 */
-		qtdGatos = 5;
-		qtdAves = 5;
-		qtdCachorros = 5;
-		qtdVacinas = 5;
+		qtdGatos = 3;
+		qtdAves = 3;
+		qtdCachorros = 3;
+		qtdVacinas = 3;
 
 	}
+	
+
+	
 	
 	/**
 	 * Metodo que insere o objeto criado dentro do vetor ave
@@ -59,6 +62,8 @@ public class Dados {
 		if (pos == qtdAves)
 			qtdAves++;
 	}
+	
+	
 
 	/**
 	 * Metodo que insere o objeto criado dentro do vetor gato

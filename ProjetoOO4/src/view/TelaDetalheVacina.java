@@ -4,8 +4,14 @@ import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import controle.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+
 import javax.swing.*;
+
+import controle.ControleDados;
 
 /**
  * Tela que permite cadastrar/editar as vacinas
@@ -19,6 +25,7 @@ public class TelaDetalheVacina implements ActionListener {
 	 * Criando os artigos visuais da tela
 	 */
 
+	private boolean validacaoData;
 	private JTextField tipoVacina = new JTextField(10);
 	private JTextField dataVacina = new JTextField(10);
 	private JTextField tempoRevacina = new JTextField(10);
@@ -37,6 +44,24 @@ public class TelaDetalheVacina implements ActionListener {
 
 	private int posicao;
 	private int opcao;
+
+	/**
+	 * Metodo que valida se a data inserida é valida ou nao
+	 * @param data data que deseja validar
+	 * @return true para data valida e false para invalida
+	 */
+	public static boolean validaData(String data) {
+		String dateFormat = "dd/MM/uuuu";
+
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(dateFormat)
+				.withResolverStyle(ResolverStyle.STRICT);
+		try {
+			LocalDate date = LocalDate.parse(data, dateTimeFormatter);
+			return true;
+		} catch (DateTimeParseException e) {
+			return false;
+		}
+	}
 
 	/**
 	 * Método que cria a tela de detalhe da vacina para edição/cadastro
@@ -156,23 +181,26 @@ public class TelaDetalheVacina implements ActionListener {
 				novoDado[2] = dataVacina.getText();
 				novoDado[3] = tempoRevacina.getText();
 
+				validacaoData = validaData(dataVacina.getText());
+				
+				if (validacaoData == true) {
 				res = dados.cadastrarVacina(novoDado);
+				}else {
+					mensagemErroData();
+				}
 
+				if(res) {
+					mensagemSucessoCadastro();
+				}
 				/*
 				 * insere mensagem de sucesso caso os dados tenham sido inseridos de
 				 * acordo e mensagem de erro caso falte algum dado ou esteja diferente do
 				 * previsto
 				 */
-				if (res)
-					mensagemSucessoCadastro();
-				else
-					mensagemErroCadastro();
 
-			} catch (NullPointerException exc1) {
-				mensagemSucessoCadastro();
 			} catch (NumberFormatException exc2) {
 				mensagemErroCadastro();
-			} 
+			}
 		}
 
 		if (src == botaoExcluir) {
@@ -194,6 +222,11 @@ public class TelaDetalheVacina implements ActionListener {
 
 			}
 		}
+	}
+
+	public void mensagemErroData() {
+		JOptionPane.showMessageDialog(null, "A data inserida não é válida", null,
+				JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	public void mensagemSucessoCadastro() {
