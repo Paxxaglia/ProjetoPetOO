@@ -399,7 +399,7 @@ public class TelaDetalhePet implements ActionListener {
 		} catch (NumberFormatException exc2) {
 			mensagemErroCadastro();
 		}
-			
+			 
 
 		if (src == botaoExcluir) {
 			boolean res = false;

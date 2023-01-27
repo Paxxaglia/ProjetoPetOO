@@ -172,7 +172,7 @@ public class TelaDetalheVacina implements ActionListener {
 				mensagemSucessoCadastro();
 			} catch (NumberFormatException exc2) {
 				mensagemErroCadastro();
-			}
+			} 
 		}
 
 		if (src == botaoExcluir) {

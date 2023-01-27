@@ -401,7 +401,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 
 			posicao = dados.buscarPet(nomeGato, 2);
 			if (posicao < 100) {
-
+ 
 				/*
 				 * cria a tela de ediçao com o pet pesquisado conforme posicao retornada
 				 * na funcao buscarPet

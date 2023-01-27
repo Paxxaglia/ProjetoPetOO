@@ -93,7 +93,7 @@ public class TelaVacina implements ActionListener, ListSelectionListener {
 		/*
 		 * Reconhece qual vacina foi selecionada na lista e abre a tela de detalhe com os dados 
 		 */
-		
+		 
 		Object src = e.getSource();
 
 		if (e.getValueIsAdjusting() && src == listaVacinasCadastradas) {
