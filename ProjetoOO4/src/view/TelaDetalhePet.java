@@ -136,6 +136,9 @@ public class TelaDetalhePet implements ActionListener {
 		telaCadastro.setLocationRelativeTo(null);
 	}
 
+	/*
+	 * Metodo que cria a tela de acordo com a opcao selecionada
+	 */
 	public void inserirEditar(int op, ControleDados d, TelaPets a, int pos) {
 
 		/*

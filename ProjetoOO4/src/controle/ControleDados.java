@@ -63,7 +63,7 @@ public class ControleDados {
 	 * @return true após efetuar o cadastro de uma nova ave
 	 */
 	public boolean cadastrarAve(String[] dadosAves) {
-
+		
 		/*
 		 * declara os atributos do objeto como sendo aqueles que foram passados no
 		 * parametro
@@ -72,7 +72,9 @@ public class ControleDados {
 				Integer.parseInt(dadosAves[4]), Integer.parseInt(dadosAves[5]),
 				dadosAves[6]);
 
+		
 		dados.cadastrarAve(a, Integer.parseInt(dadosAves[0]));
+		
 		return true;
 
 	}
@@ -95,6 +97,7 @@ public class ControleDados {
 				Integer.parseInt(dadosCachorros[6]), dadosCachorros[7]);
 
 		dados.cadastrarCachorro(c, Integer.parseInt(dadosCachorros[0]));
+		
 		return true;
 
 	}
