@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 /**
  * Classe Abstrata Mãe Pet contem os valores comuns entre seus herdeiros.
  * @author Polen
@@ -8,10 +10,12 @@ package modelo;
 
 public abstract class Pet {
 
+	
 	protected String nome;
 	protected String sexo;
 	protected double peso;
 	protected int idade;
+	protected ArrayList <Vacina> vacinas = new ArrayList<Vacina>();
   
 	// getters e setters
 
@@ -21,6 +25,14 @@ public abstract class Pet {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public ArrayList<Vacina> getVacinas() {
+		return vacinas;
+	}
+
+	public void setVacinas(ArrayList<Vacina> vacinas) {
+		this.vacinas = vacinas;
 	}
 
 	public void setPeso(double peso) {

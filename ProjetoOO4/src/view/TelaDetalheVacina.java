@@ -44,9 +44,9 @@ public class TelaDetalheVacina implements ActionListener {
 
 	private int posicao;
 	private int opcao;
-
 	/**
 	 * Metodo que valida se a data inserida é valida ou nao
+	 * 
 	 * @param data data que deseja validar
 	 * @return true para data valida e false para invalida
 	 */
@@ -137,20 +137,18 @@ public class TelaDetalheVacina implements ActionListener {
 		posicao = pos;
 		dados = d;
 
-		botaoExcluir.addActionListener(this);
+		if (op == 1) {botaoExcluir.addActionListener(this);
 		botaoSalvar.addActionListener(this);
-
+		
 		/*
 		 * Preenche a tela com dados da vacina clicada
 		 */
-		if (op == 1) {
 
-			cadastroVacina.add(botaoExcluir);
-			tipoVacina.setText(dados.getVacinas()[pos].getTipo());
-			dataVacina.setText(dados.getVacinas()[pos].getData());
-			tempoRevacina
-					.setText(String.valueOf(dados.getVacinas()[pos].getTempoRevacina()));
-		}
+		cadastroVacina.add(botaoExcluir);
+		tipoVacina.setText(dados.getVacinas()[pos].getTipo());
+		dataVacina.setText(dados.getVacinas()[pos].getData());
+		tempoRevacina.setText(String.valueOf(dados.getVacinas()[pos].getTempoRevacina()));}
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -184,7 +182,7 @@ public class TelaDetalheVacina implements ActionListener {
 				validacaoData = validaData(dataVacina.getText());
 				
 				if (validacaoData == true) {
-				res = dados.cadastrarVacina(novoDado);
+				res = dados.cadastrarVacina(novoDado,1);
 				}else {
 					mensagemErroData();
 				}

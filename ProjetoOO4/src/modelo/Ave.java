@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 /**
  * Classe Ave demonstra os atributos de uma ave, com atributos individuais e
  * atributos herdados da Classe Pet
@@ -13,37 +15,14 @@ public class Ave extends Pet {
 	private int mesCorte;
 	private String especie;
 
-	/**
-	 * Metodo construtor da classe ave para instanciar um objeto
-	 * 
-	 * @param nome     nome do objeto ave a ser instanciado
-	 * @param sexo     sexo do objeto ave a ser instanciado
-	 * @param peso     peso do objeto ave a ser instanciado
-	 * @param idade    idade do objeto ave a ser instanciado
-	 * @param mesCorte mês de corte das asas da ave
-	 * @param especie  especie da ave
-	 */
-	public Ave(String nome, String sexo, double peso, int idade, int mesCorte,
-			String especie) {
-
-		this.nome = nome;
-		this.sexo = sexo;
-		this.peso = peso;
-		this.idade = idade;
-		this.mesCorte = mesCorte;
-		this.especie = especie;
+	public ArrayList<Vacina> getVacinas() {
+		return vacinas;
 	}
 
-	/**
-	 * Sobrescrita do metodo toString para que apresente os valores dos atributos.
-	 * 
-	 * @return Valores dos atributos da classe ave
-	 */
-	public String toString() {
-		return "\n\nNome do passaro: " + nome + "\nSexo: " + sexo + "\nPeso: " + peso
-				+ "kg\nIdade: " + idade + "\nEspécie: " + especie;
+	public void setVacinas(ArrayList<Vacina> vacinas) {
+		this.vacinas = vacinas;
 	}
-
+	
 	public int getMesCorte() {
 		return mesCorte;
 	}
@@ -60,4 +39,38 @@ public class Ave extends Pet {
 		this.especie = especie;
 	}
 
+
+	/**
+	 * Metodo construtor da classe ave para instanciar um objeto
+	 * 
+	 * @param nome     nome do objeto ave a ser instanciado
+	 * @param sexo     sexo do objeto ave a ser instanciado
+	 * @param peso     peso do objeto ave a ser instanciado
+	 * @param idade    idade do objeto ave a ser instanciado
+	 * @param mesCorte mês de corte das asas da ave
+	 * @param especie  especie da ave
+	 */
+	public Ave(String nome, String sexo, double peso, int idade, ArrayList<Vacina> vacinas, int mesCorte,
+			String especie) {
+
+		this.nome = nome;
+		this.sexo = sexo;
+		this.peso = peso;
+		this.idade = idade;
+		this.vacinas = vacinas;
+		this.mesCorte = mesCorte;
+		this.especie = especie;
+	}
+
+	/**
+	 * Sobrescrita do metodo toString para que apresente os valores dos atributos.
+	 * 
+	 * @return Valores dos atributos da classe ave
+	 */
+	public String toString() {
+		return "\n\nNome do passaro: " + nome + "\nSexo: " + sexo + "\nPeso: " + peso
+				+ "kg\nIdade: " + idade + vacinas + "\nEspécie: " + especie;
+	}
+
+	
 }

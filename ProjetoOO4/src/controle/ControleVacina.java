@@ -13,6 +13,7 @@ public class ControleVacina {
 	private int qtdVacinas;
 
 	public ControleVacina(ControleDados dados) {
+		
 		vacina = dados.getVacinas();
 		qtdVacinas = dados.getQtdVacinas();
 	}
@@ -21,6 +22,7 @@ public class ControleVacina {
 	 * Metodo para pegar o valor do nome de uma determinada ave
 	 * @return Nome do gato
 	 */
+	
 	public String[] getTipoVacina() {
 		String[] s = new String[qtdVacinas];
 		for (int i = 0; i < qtdVacinas; i++) {
@@ -28,5 +30,7 @@ public class ControleVacina {
 		}
 		return s;
 	} 
+	
+
 
 }  

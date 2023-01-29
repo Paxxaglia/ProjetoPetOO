@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.Color; 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -59,6 +59,7 @@ public class TelaDetalhePet implements ActionListener {
 
 	private JButton botaoSalvar = new JButton(" Salvar ");
 	private JButton botaoExcluir = new JButton(" Excluir ");
+	private JButton botaoVacinas = new JButton ("Vacinas");
 
 	private JFrame telaCadastro = new JFrame("Projeto Pet - Cadastro de Pet");
 	private JLabel intrucaoNome = new JLabel("Digite o nome do pet: ");
@@ -123,13 +124,19 @@ public class TelaDetalhePet implements ActionListener {
 		botaoSalvar.setFont(Arial);
 		botaoSalvar.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
 		botaoSalvar.setBounds(600, 200, 200, 200);
+		
+		botaoVacinas.setForeground(Color.BLACK);
+		botaoVacinas.setBackground(Color.YELLOW);
+		botaoVacinas.setFont(Arial);
+		botaoVacinas.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
+		botaoVacinas.setBounds(600, 200, 200, 200);
 
 		/*
 		 * alteracoes de design da tela
 		 */
 
 		telaCadastro.setBackground(Color.black);
-		telaCadastro.setSize(400, 700);
+		telaCadastro.setSize(400, 750);
 		telaCadastro.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50));
 		telaCadastro.setVisible(true);
 		telaCadastro.getContentPane().setBackground(Color.darkGray);
@@ -214,7 +221,9 @@ public class TelaDetalhePet implements ActionListener {
 		if (op == 5) {
 			defineEstilos();
 			telaCadastro.add(botaoExcluir);
+			telaCadastro.add(botaoVacinas);
 			botaoExcluir.addActionListener(this);
+			botaoVacinas.addActionListener(this);
 		}
 
 		/*
@@ -223,6 +232,7 @@ public class TelaDetalhePet implements ActionListener {
 		if (op == 6) {
 
 			defineEstilos();
+			
 			nome.setText(dados.getCachorros()[pos].getNome());
 			sexo.setSelectedItem(dados.getCachorros()[pos].getSexo());
 			peso.setText(String.valueOf(dados.getCachorros()[pos].getPeso()));
@@ -242,8 +252,7 @@ public class TelaDetalhePet implements ActionListener {
 
 			defineEstilos();
 			nome.setText(dados.getGatos()[pos].getNome());
-			tempoPasseio
-					.setText(String.valueOf(dados.getCachorros()[pos].getTempoPasseio()));
+			sexo.setSelectedItem(dados.getGatos()[pos].getSexo());
 			peso.setText(String.valueOf(dados.getGatos()[pos].getPeso()));
 			idade.setText(String.valueOf(dados.getGatos()[pos].getIdade()));
 			corPelo.setSelectedItem(dados.getGatos()[pos].getCorPelo());
@@ -292,6 +301,8 @@ public class TelaDetalhePet implements ActionListener {
 		if (op == 6) {
 			defineEstilos();
 			telaCadastro.add(botaoExcluir);
+			telaCadastro.add(botaoVacinas);
+			botaoVacinas.addActionListener(this);
 			botaoExcluir.addActionListener(this);
 		}
 
@@ -334,7 +345,9 @@ public class TelaDetalhePet implements ActionListener {
 			 */
 			defineEstilos();
 			telaCadastro.add(botaoExcluir);
+			telaCadastro.add(botaoVacinas);
 			botaoExcluir.addActionListener(this);
+			botaoVacinas.addActionListener(this);
 		}
 
 	}
@@ -344,65 +357,65 @@ public class TelaDetalhePet implements ActionListener {
 
 		Object src = e.getSource();
 		try {
-		if (src == botaoSalvar) {
+			if (src == botaoSalvar) {
 
-			boolean res = false;
+				boolean res = false;
 
-			if (opcao == 1) // cadastrar nova ave
-				novoDado[0] = Integer.toString(dados.getQtdAves());
-			else if (opcao == 2) // cadastrar novo cachorro
-				novoDado[0] = Integer.toString(dados.getQtdCachorros());
-			else if (opcao == 3)// cadastrar novo gato
-				novoDado[0] = Integer.toString(dados.getQtdGatos());
-			else // editar dado existente
-				novoDado[0] = Integer.toString(posicao);
+				if (opcao == 1) // cadastrar nova ave
+					novoDado[0] = Integer.toString(dados.getQtdAves());
+				else if (opcao == 2) // cadastrar novo cachorro
+					novoDado[0] = Integer.toString(dados.getQtdCachorros());
+				else if (opcao == 3)// cadastrar novo gato
+					novoDado[0] = Integer.toString(dados.getQtdGatos());
+				else // editar dado existente
+					novoDado[0] = Integer.toString(posicao);
 
-			if (opcao == 1 || opcao == 5) { // salvar os dados inseridos de aves
+				if (opcao == 1 || opcao == 5) { // salvar os dados inseridos de aves
 
-				novoDado[1] = nome.getText();
-				novoDado[2] = (String) sexo.getSelectedItem();
-				novoDado[3] = peso.getText();
-				novoDado[4] = idade.getText();
-				novoDado[5] = mesCorte.getText();
-				novoDado[6] = especieAve.getText();
+					novoDado[1] = nome.getText();
+					novoDado[2] = (String) sexo.getSelectedItem();
+					novoDado[3] = peso.getText();
+					novoDado[4] = idade.getText();
+					novoDado[5] = mesCorte.getText();
+					novoDado[6] = especieAve.getText();
 
-				res = dados.cadastrarAve(novoDado);
+					res = dados.cadastrarAve(novoDado);
 
-			} else if (opcao == 2 || opcao == 6) { // salva os dados inseridos de
-													// cachorros
-				novoDado[1] = nome.getText();
-				novoDado[2] = (String) sexo.getSelectedItem();
-				novoDado[3] = peso.getText();
-				novoDado[4] = idade.getText();
-				novoDado[5] = (String) porte.getSelectedItem();
-				novoDado[6] = tempoPasseio.getText();
-				novoDado[7] = raca.getText();
+				} else if (opcao == 2 || opcao == 6) { // salva os dados inseridos de
+														// cachorros
+					novoDado[1] = nome.getText();
+					novoDado[2] = (String) sexo.getSelectedItem();
+					novoDado[3] = peso.getText();
+					novoDado[4] = idade.getText();
+					novoDado[5] = (String) porte.getSelectedItem();
+					novoDado[6] = tempoPasseio.getText();
+					novoDado[7] = raca.getText();
 
-				res = dados.cadastrarCachorro(novoDado);
+					res = dados.cadastrarCachorro(novoDado);
 
-			} else if (opcao == 3 || opcao == 7) { // salva os dados inseridos de gato
-				novoDado[1] = nome.getText();
-				novoDado[2] = (String) sexo.getSelectedItem();
-				novoDado[3] = peso.getText();
-				novoDado[4] = idade.getText();
-				novoDado[5] = (String) corPelo.getSelectedItem();
-				novoDado[6] = (String) corOlho.getSelectedItem();
-				novoDado[7] = (String) tamanhoPelagem.getSelectedItem();
+				} else if (opcao == 3 || opcao == 7) { // salva os dados inseridos de gato
+					novoDado[1] = nome.getText();
+					novoDado[2] = (String) sexo.getSelectedItem();
+					novoDado[3] = peso.getText();
+					novoDado[4] = idade.getText();
+					novoDado[5] = (String) corPelo.getSelectedItem();
+					novoDado[6] = (String) corOlho.getSelectedItem();
+					novoDado[7] = (String) tamanhoPelagem.getSelectedItem();
 
-				res = dados.cadastrarGato(novoDado);
+					res = dados.cadastrarGato(novoDado);
 
+				}
+
+				if (res) {
+					mensagemSucessoCadastro();
+				} else
+					mensagemErroCadastro();
 			}
-
-			if (res) {
-				mensagemSucessoCadastro();
-			}else
-				mensagemErroCadastro(); }
 		} catch (NullPointerException exc1) {
 			mensagemErroCadastro();
 		} catch (NumberFormatException exc2) {
 			mensagemErroCadastro();
 		}
-			 
 
 		if (src == botaoExcluir) {
 			boolean res = false;
@@ -433,6 +446,25 @@ public class TelaDetalhePet implements ActionListener {
 				else
 					mensagemErroExclusao();
 			}
+		}
+		
+		
+		if (src == botaoVacinas) {
+
+			// Mostra vacinas do pet
+
+			if (opcao == 5) {
+				
+				new TelaVacina().mostrarDados(dados, posicao, 1);
+}
+				if(opcao == 6) {
+					
+				new TelaVacina().mostrarDados(dados, posicao, 2);
+				
+			}
+//				else {
+//				new TelaVacina().mostrarDados(dados, posicao, 3);
+//			}
 		}
 	}
 

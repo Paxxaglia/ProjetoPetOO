@@ -1,4 +1,4 @@
-package modelo;
+	package modelo;
 
 /**
  * Classe vacina demonstra os atributos de uma vacina

@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 /**
  * Classe Gato demonstra os atributos de um Gato, com atributos individuais e
  * atributos herdados da Classe Pet
@@ -26,7 +28,7 @@ public class Gato extends Pet {
 	 * @param tamanhoPelagem tamanho do pelo do gato
 	 */
 
-	public Gato(String nome, String sexo, double peso, int idade, String corPelo,
+	public Gato(String nome, String sexo, double peso, int idade, ArrayList<Vacina> vacinas , String corPelo,
 			String corOlho, String tamanhoPelagem) {
 
 		this.nome = nome;
@@ -36,6 +38,7 @@ public class Gato extends Pet {
 		this.corPelo = corPelo;
 		this.corOlho = corOlho;
 		this.tamanhoPelagem = tamanhoPelagem;
+		this.vacinas = vacinas;
 	}
 
 	/**

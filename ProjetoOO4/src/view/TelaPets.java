@@ -34,7 +34,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 	private JList<String> listaAvesCadastradas;
 	private JList<String> listaCachorrosCadastrados;
 	private JList<String> listaGatosCadastrados;
-
+	
 	private String[] listaNomes = new String[50];
 
 	/**

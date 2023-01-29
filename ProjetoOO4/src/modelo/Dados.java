@@ -1,5 +1,8 @@
 package modelo;
 
+import java.util.ArrayList;
+import controle.*;
+
 /**
  * Classe dados simula um banco de dados no codigo
  * 
@@ -8,7 +11,7 @@ package modelo;
  */
 
 public class Dados {
-
+	
 	private Ave[] ave = new Ave[50];
 	private int qtdAves = 0;
 	private Cachorro[] cachorro = new Cachorro[50];
@@ -17,6 +20,7 @@ public class Dados {
 	private int qtdGatos = 0;
 	private Vacina[] vacina = new Vacina[50];
 	private int qtdVacinas = 0;
+	ArrayList<Vacina> vacinas = new ArrayList<Vacina>();
 
 	/**
 	 * Método que pré cadastra 5 objetos de cada classe para demonstração
@@ -25,16 +29,18 @@ public class Dados {
 
 		for (int i = 0; i < 5; i++) {
 
-			gato[i] = new Gato("Gato" + i, "Sexo" + i, 12, (i + 1) * 2, "Azul" + i,
-					"Cor" + i, "Pelagem" + i);
+			gato[i] = new Gato("Gato" + i, "Sexo" + i, 12, (i + 1) * 2, vacinas,
+					"Azul" + i, "Cor" + i, "Pelagem" + i);
 
-			ave[i] = new Ave("Ave" + i, "Sexo" + i, 12, (i + 1) * 2, 4, "Especie" + i);
+			ave[i] = new Ave("Ave" + i, "Sexo" + i, 12, (i + 1) * 2, vacinas, 4,
+					"Especie" + i);
 
 			cachorro[i] = new Cachorro("Cachorro" + i, "Sexo" + i, 12, (i + 1) * 2,
-					"Medio", 20 + i * 2, "Raça" + i);
+					vacinas, "Medio", 20 + i * 2, "Raça" + i);
 
 			vacina[i] = new Vacina("Vacina" + i, "data" + i, i);
 
+			getAves()[i].vacinas.add(vacina[i]);
 		}
 
 		/**
@@ -46,10 +52,7 @@ public class Dados {
 		qtdVacinas = 3;
 
 	}
-	
 
-	
-	
 	/**
 	 * Metodo que insere o objeto criado dentro do vetor ave
 	 * 
@@ -62,8 +65,6 @@ public class Dados {
 		if (pos == qtdAves)
 			qtdAves++;
 	}
-	
-	
 
 	/**
 	 * Metodo que insere o objeto criado dentro do vetor gato
@@ -100,7 +101,6 @@ public class Dados {
 		if (pos == qtdVacinas)
 			qtdVacinas++;
 	}
-	
 
 	public Gato[] getGatos() {
 		return gato;
@@ -108,6 +108,10 @@ public class Dados {
 
 	public void setGatos(Gato[] gato) {
 		this.gato = gato;
+	}
+
+	public void setVacinas(ArrayList<Vacina> vacinas) {
+		this.vacinas = vacinas;
 	}
 
 	public int getQtdGatos() {
@@ -165,7 +169,5 @@ public class Dados {
 	public void setQtdVacinas(int qtdVacinas) {
 		this.qtdVacinas = qtdVacinas;
 	}
-
-
 
 }

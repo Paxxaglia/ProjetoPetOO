@@ -1,16 +1,14 @@
 package view;
 
-import java.awt.*;
+import java.awt.*; 
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.event.*;
 import javax.swing.*;
 
-import controle.ControleDados;
+import controle.*;
 
-/** 
- * Tela de menu com botoes que direcionam para as outras telas
+/**
+ * Tela de seleção de qual tipo de pet deseja gerenciar
  * 
  * @author Iago Passaglia
  *
@@ -18,64 +16,85 @@ import controle.ControleDados;
 
 public class TelaMenu implements ActionListener {
 
-	private JFrame menu = new JFrame("Projeto Pet - MENU");
-	private JButton botaoPets = new JButton(" Pets ");
-	private JButton botaoVacinas = new JButton(" Vacinas ");
+	/*
+	 * Criação dos botoes e definicao de controle de dados
+	 */
+	private JFrame menu = new JFrame("Gerenciamento de pets - MENU");
+	private JButton botaoGerenciaGato = new JButton(" Gerenciar Gatos ");
+	private JButton botaoGerenciaCachorro = new JButton(" Gerenciar Cachorros ");
+	private JButton botaoGerenciaAve = new JButton(" Gerenciar Aves ");
 	private ControleDados dados = new ControleDados();
 
 	/**
-	 * Metodo que cria a tela de menu
+	 * Criação da tela
+	 * 
+	 * @param dados
 	 */
-
 	TelaMenu() {
 
 		Font Arial = new Font("Arial Black", Font.BOLD, 25);
 
-		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		menu.add(botaoPets);
-		menu.add(botaoVacinas);
+		menu.add(botaoGerenciaGato);
+		menu.add(botaoGerenciaCachorro);
+		menu.add(botaoGerenciaAve);
 
-		menu.setSize(400, 450);
-		menu.setLayout(null);
+		menu.setSize(350, 400);
+		menu.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50));
 		menu.setVisible(true);
 		menu.getContentPane().setBackground(Color.darkGray);
 		menu.setLocationRelativeTo(null);
 
-		botaoPets.setBounds(95, 100, 200, 60);
-		botaoPets.setForeground(Color.BLACK);
-		botaoPets.setBackground(Color.yellow);
-		botaoPets.setFont(Arial);
-		botaoPets.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
+		botaoGerenciaGato.setBounds(100, 350, 200, 60);
+		botaoGerenciaGato.setForeground(Color.BLACK);
+		botaoGerenciaGato.setBackground(Color.YELLOW);
+		botaoGerenciaGato.setFont(Arial);
+		botaoGerenciaGato.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
 
-		botaoVacinas.setBounds(95, 200, 200, 60);
-		botaoVacinas.setForeground(Color.BLACK);
-		botaoVacinas.setBackground(Color.YELLOW);
-		botaoVacinas.setFont(Arial);
-		botaoVacinas.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
+		botaoGerenciaCachorro.setBounds(100, 350, 200, 60);
+		botaoGerenciaCachorro.setForeground(Color.BLACK);
+		botaoGerenciaCachorro.setBackground(Color.YELLOW);
+		botaoGerenciaCachorro.setFont(Arial);
+		botaoGerenciaCachorro.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
 
-		botaoVacinas.addActionListener(this);
-		botaoPets.addActionListener(this);
+		botaoGerenciaAve.setBounds(100, 350, 200, 60);
+		botaoGerenciaAve.setForeground(Color.BLACK);
+		botaoGerenciaAve.setBackground(Color.YELLOW);
+		botaoGerenciaAve.setFont(Arial);
+		botaoGerenciaAve.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
 
+		botaoGerenciaGato.setBounds(100, 350, 200, 60);
+		botaoGerenciaGato.setForeground(Color.BLACK);
+		botaoGerenciaGato.setBackground(Color.YELLOW);
+		botaoGerenciaGato.setFont(Arial);
+		botaoGerenciaGato.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
+
+		botaoGerenciaAve.addActionListener(this);
+		botaoGerenciaCachorro.addActionListener(this);
+		botaoGerenciaGato.addActionListener(this);
+ 
 	}
-
+	
 	public static void main(String[] args) {
 		new TelaMenu();
 	}
 
-	/*
-	 * Reconhece se o botao foi clicado para abrir uma nova tela
-	 */
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 
-		if (src == botaoPets) {
-			new TelaMenuPets(dados);
-
+		/*
+		 * Cria tela com os dados do pet selecionado a depender do botao clicado
+		 */
+		if (src == botaoGerenciaAve) {
+			new TelaPets().mostrarDados(dados, 1);
 		}
 
-		if (src == botaoVacinas) {
-			new TelaVacina().mostrarDados(dados
-					);
+		if (src == botaoGerenciaGato) {
+			new TelaPets().mostrarDados(dados, 2);
+		}
+
+		if (src == botaoGerenciaCachorro) {
+			new TelaPets().mostrarDados(dados, 3);
 		}
 
 	}
