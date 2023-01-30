@@ -42,21 +42,14 @@ public class TelaVacina implements ActionListener, ListSelectionListener {
 	 * 
 	 */
 
-	public void mostrarDados(ControleDados dados, int posicaoPet, int opcao) {
+	public void mostrarDados(ControleDados dados, int posicaoPet) {
 		this.dados = dados;
 
 		/*
 		 * Definição dos atributos visuais da tela
 		 */
 
-		if(opcao == 1) {
-			listaVacinasCadastradas = new JList<String>(dados.listaVacina(posicaoPet, 1));
-		}if(opcao == 2) {
-			listaVacinasCadastradas = new JList<String>(dados.listaVacina(posicaoPet, 2));
-		}if(opcao == 3) {
-			listaVacinasCadastradas = new JList<String>(dados.listaVacina(posicaoPet, 3));
-		}
-		
+		listaVacinasCadastradas = new JList<String>(dados.listaVacina(posicaoPet));
 
 		janela = new JFrame("Vacinas");
 		titulo = new JLabel("Vacinas Cadastradas");

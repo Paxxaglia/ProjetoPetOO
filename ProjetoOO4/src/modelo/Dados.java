@@ -1,7 +1,6 @@
 package modelo;
 
 import java.util.ArrayList;
-import controle.*;
 
 /**
  * Classe dados simula um banco de dados no codigo
@@ -11,7 +10,7 @@ import controle.*;
  */
 
 public class Dados {
-	
+
 	private Ave[] ave = new Ave[50];
 	private int qtdAves = 0;
 	private Cachorro[] cachorro = new Cachorro[50];
@@ -108,10 +107,6 @@ public class Dados {
 
 	public void setGatos(Gato[] gato) {
 		this.gato = gato;
-	}
-
-	public void setVacinas(ArrayList<Vacina> vacinas) {
-		this.vacinas = vacinas;
 	}
 
 	public int getQtdGatos() {

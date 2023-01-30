@@ -44,6 +44,8 @@ public class TelaDetalheVacina implements ActionListener {
 
 	private int posicao;
 	private int opcao;
+	private int opcaoPet;
+
 	/**
 	 * Metodo que valida se a data inserida é valida ou nao
 	 * 
@@ -80,6 +82,8 @@ public class TelaDetalheVacina implements ActionListener {
 		opcao = op;
 		dados = d;
 		posicao = pos;
+		
+		
 
 		/*
 		 * Definições dos estilos
@@ -137,18 +141,20 @@ public class TelaDetalheVacina implements ActionListener {
 		posicao = pos;
 		dados = d;
 
-		if (op == 1) {botaoExcluir.addActionListener(this);
+		botaoExcluir.addActionListener(this);
 		botaoSalvar.addActionListener(this);
-		
+
 		/*
 		 * Preenche a tela com dados da vacina clicada
 		 */
+		if (op == 1) {
 
-		cadastroVacina.add(botaoExcluir);
-		tipoVacina.setText(dados.getVacinas()[pos].getTipo());
-		dataVacina.setText(dados.getVacinas()[pos].getData());
-		tempoRevacina.setText(String.valueOf(dados.getVacinas()[pos].getTempoRevacina()));}
-
+			cadastroVacina.add(botaoExcluir);
+			tipoVacina.setText(dados.getVacinas()[pos].getTipo());
+			dataVacina.setText(dados.getVacinas()[pos].getData());
+			tempoRevacina
+					.setText(String.valueOf(dados.getVacinas()[pos].getTempoRevacina()));
+		}
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -180,14 +186,21 @@ public class TelaDetalheVacina implements ActionListener {
 				novoDado[3] = tempoRevacina.getText();
 
 				validacaoData = validaData(dataVacina.getText());
-				
+
 				if (validacaoData == true) {
-				res = dados.cadastrarVacina(novoDado,1);
-				}else {
+					if (opcao == 1) {
+						res = dados.cadastrarVacina(novoDado, posicao, 1);
+					}if(opcaoPet == 2) {
+						res = dados.cadastrarVacina(novoDado, posicao, 2);
+					}else {
+						res = dados.cadastrarVacina(novoDado, posicao, 3);
+					}
+
+				} else {
 					mensagemErroData();
 				}
 
-				if(res) {
+				if (res) {
 					mensagemSucessoCadastro();
 				}
 				/*

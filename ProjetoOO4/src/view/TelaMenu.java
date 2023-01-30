@@ -23,15 +23,15 @@ public class TelaMenu implements ActionListener {
 	private JButton botaoGerenciaGato = new JButton(" Gerenciar Gatos ");
 	private JButton botaoGerenciaCachorro = new JButton(" Gerenciar Cachorros ");
 	private JButton botaoGerenciaAve = new JButton(" Gerenciar Aves ");
-	private ControleDados dados = new ControleDados();
+	private ControleDados dados;
 
 	/**
 	 * Criação da tela
 	 * 
 	 * @param dados
 	 */
-	TelaMenu() {
-
+	public TelaMenu(ControleDados dados) {
+		this.dados=dados;
 		Font Arial = new Font("Arial Black", Font.BOLD, 25);
 
 		menu.add(botaoGerenciaGato);
@@ -73,10 +73,6 @@ public class TelaMenu implements ActionListener {
 		botaoGerenciaGato.addActionListener(this);
  
 	}
-	
-	public static void main(String[] args) {
-		new TelaMenu();
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -87,14 +83,17 @@ public class TelaMenu implements ActionListener {
 		 */
 		if (src == botaoGerenciaAve) {
 			new TelaPets().mostrarDados(dados, 1);
+			menu.dispose();
 		}
 
 		if (src == botaoGerenciaGato) {
 			new TelaPets().mostrarDados(dados, 2);
+			menu.dispose();
 		}
 
 		if (src == botaoGerenciaCachorro) {
 			new TelaPets().mostrarDados(dados, 3);
+			menu.dispose();
 		}
 
 	}

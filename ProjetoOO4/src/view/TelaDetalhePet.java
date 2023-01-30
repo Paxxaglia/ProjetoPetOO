@@ -59,7 +59,7 @@ public class TelaDetalhePet implements ActionListener {
 
 	private JButton botaoSalvar = new JButton(" Salvar ");
 	private JButton botaoExcluir = new JButton(" Excluir ");
-	private JButton botaoVacinas = new JButton ("Vacinas");
+	private JButton botaoVacinas = new JButton("Vacinas");
 
 	private JFrame telaCadastro = new JFrame("Projeto Pet - Cadastro de Pet");
 	private JLabel intrucaoNome = new JLabel("Digite o nome do pet: ");
@@ -124,7 +124,7 @@ public class TelaDetalhePet implements ActionListener {
 		botaoSalvar.setFont(Arial);
 		botaoSalvar.setBorder(BorderFactory.createLineBorder(Color.orange, 2));
 		botaoSalvar.setBounds(600, 200, 200, 200);
-		
+
 		botaoVacinas.setForeground(Color.BLACK);
 		botaoVacinas.setBackground(Color.YELLOW);
 		botaoVacinas.setFont(Arial);
@@ -222,8 +222,9 @@ public class TelaDetalhePet implements ActionListener {
 			defineEstilos();
 			telaCadastro.add(botaoExcluir);
 			telaCadastro.add(botaoVacinas);
-			botaoExcluir.addActionListener(this);
 			botaoVacinas.addActionListener(this);
+			botaoExcluir.addActionListener(this);
+
 		}
 
 		/*
@@ -232,7 +233,7 @@ public class TelaDetalhePet implements ActionListener {
 		if (op == 6) {
 
 			defineEstilos();
-			
+
 			nome.setText(dados.getCachorros()[pos].getNome());
 			sexo.setSelectedItem(dados.getCachorros()[pos].getSexo());
 			peso.setText(String.valueOf(dados.getCachorros()[pos].getPeso()));
@@ -301,9 +302,9 @@ public class TelaDetalhePet implements ActionListener {
 		if (op == 6) {
 			defineEstilos();
 			telaCadastro.add(botaoExcluir);
+			botaoExcluir.addActionListener(this);
 			telaCadastro.add(botaoVacinas);
 			botaoVacinas.addActionListener(this);
-			botaoExcluir.addActionListener(this);
 		}
 
 		/*
@@ -345,9 +346,10 @@ public class TelaDetalhePet implements ActionListener {
 			 */
 			defineEstilos();
 			telaCadastro.add(botaoExcluir);
-			telaCadastro.add(botaoVacinas);
 			botaoExcluir.addActionListener(this);
+			telaCadastro.add(botaoVacinas);
 			botaoVacinas.addActionListener(this);
+			
 		}
 
 	}
@@ -373,7 +375,7 @@ public class TelaDetalhePet implements ActionListener {
 				if (opcao == 1 || opcao == 5) { // salvar os dados inseridos de aves
 
 					novoDado[1] = nome.getText();
-					novoDado[2] = (String) sexo.getSelectedItem();
+					novoDado[2] = sexo.getSelectedItem().toString();
 					novoDado[3] = peso.getText();
 					novoDado[4] = idade.getText();
 					novoDado[5] = mesCorte.getText();
@@ -447,24 +449,22 @@ public class TelaDetalhePet implements ActionListener {
 					mensagemErroExclusao();
 			}
 		}
-		
-		
+
 		if (src == botaoVacinas) {
 
 			// Mostra vacinas do pet
 
 			if (opcao == 5) {
-				
-				new TelaVacina().mostrarDados(dados, posicao, 1);
-}
-				if(opcao == 6) {
-					
-				new TelaVacina().mostrarDados(dados, posicao, 2);
-				
+
+				new TelaVacina().mostrarDados(dados, posicao);
+
 			}
-//				else {
-//				new TelaVacina().mostrarDados(dados, posicao, 3);
-//			}
+			if (opcao == 6) {
+				new TelaVacina().mostrarDados(dados, posicao);
+			}
+			if (opcao == 7) {
+				new TelaVacina().mostrarDados(dados, posicao);
+			}
 		}
 	}
 

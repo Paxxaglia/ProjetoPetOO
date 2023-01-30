@@ -28,6 +28,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 	private JButton refreshAve;
 	private JButton refreshCachorro;
 	private JButton refreshGato;
+	private JButton voltar;
 	private int posicao;
 
 	private ControleDados dados;
@@ -46,7 +47,12 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 	 */
 	public void mostrarDados(ControleDados dados, int op) {
 		this.dados = dados;
-
+		
+		voltar = new JButton("Voltar");
+		voltar.setBounds(310, 15, 60, 30);                                            // isso aqui tbm
+		voltar.setMargin(new Insets(0,0,0,0));
+		voltar.addActionListener(this);
+		
 		switch (op) {
 		case 1:// Mostrar dados de Aves cadastradas
 
@@ -88,6 +94,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 			pesquisaInfo.setBounds(200, 255, 115, 20);
 			cadastroAve.setBounds(70, 177, 100, 30);
 			refreshAve.setBounds(200, 177, 100, 30);
+			
 			titulo.setForeground(Color.yellow);
 			janela.setLayout(null);
 
@@ -95,6 +102,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 			janela.add(listaAvesCadastradas);
 			janela.add(cadastroAve);
 			janela.add(refreshAve);
+			janela.add(voltar);
 			janela.add(buscaAve);
 			janela.add(pesquisaInfo);
 
@@ -163,6 +171,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 			janela.add(listaGatosCadastrados);
 			janela.add(cadastroGato);
 			janela.add(refreshGato);
+			janela.add(voltar);
 			janela.add(buscaGato);
 			janela.add(pesquisaInfo);
 
@@ -230,6 +239,7 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 			janela.add(listaCachorrosCadastrados);
 			janela.add(cadastroCachorro);
 			janela.add(refreshCachorro);
+			janela.add(voltar);
 			janela.add(buscaCachorro);
 			janela.add(pesquisaInfo);
 
@@ -281,6 +291,12 @@ public class TelaPets implements ActionListener, ListSelectionListener {
 	// Captura eventos relacionados aos botoes da interface
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
+		                                                                                // coloquei isso
+		if (src == voltar) {
+			new TelaMenu(dados);
+			janela.dispose();
+		}
+			
 
 		/*
 		 * Cadastro de nova Ave

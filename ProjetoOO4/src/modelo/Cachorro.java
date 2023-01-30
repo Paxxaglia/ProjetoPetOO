@@ -27,7 +27,7 @@ public class Cachorro extends Pet {
 	 * @param tempoPasseio especie da ave
 	 */
 
-	public Cachorro(String nome, String sexo, double peso, int idade,ArrayList<Vacina> vacinas, String porte,
+	public Cachorro(String nome, String sexo, double peso, int idade, ArrayList<Vacina> vacinas ,String porte,
 			int tempoPasseio, String raca) {
 
 		this.nome = nome;
@@ -37,7 +37,6 @@ public class Cachorro extends Pet {
 		this.porte = porte;
 		this.tempoPasseio = tempoPasseio;
 		this.raca = raca;
-		this.vacinas = vacinas;
 
 	}
 	
